@@ -1,77 +1,157 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Links++ quick copy links</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
-    <style>
-      /* Modal Structure */
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
-*{
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   font-family:"Montserrat";
-}
+    }
       html,
       body {
         font-family: "Open Sans", sans-serif;
         font-size: 14px;
         margin: 0;
         min-height: 180px;
+        
         padding: 0;
+        height:100px;
         width: 384px;
         position: relative;
       }
 
-      
+  body{
+    height: 100%;
+    background-color:white;
+    box-sizing: border-box;
+   }
 
-      h1 {
-        
-        font-size: 22px;
+ h1 {
+        padding:10px;
+        font-size: 23px;
         font-weight: 400;
         margin: 0;
         color: #fff;
         background-color: salmon;
       }
 
-
-      img {
+  img {
         width: 30px;
       }
 
-      .modal-header {
-        align-items: center;
-        border-bottom: 0.5px solid #dadada;
-      }
+   .version{
+    color:#444;
+    }
 
-      .modal-content {
-        padding: 0 22px;
-        height:200px;
-      }
+    .copied{
+       position:absolute;
+      background:none;
+       padding-left:10px;
+       
+      font-size:1.2rem;
+      margin-top:-5px;
+      display:none;
+     }
 
-      #addnew {
-        border-top: 0.5px solid #dadada;
-        height: 40px;
-        width: 100%;
-        bottom:0px;
-        position:absolute;
-        bottom:0;
-        outline:none;
-        background-color: turquoise;
-        border:none;
-        padding:0;
-        cursor:pointer;
-      }
 
-      .logo {
+ .inputDiv{
+  margin-top:5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+
+.input{
+  background:pink;
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 20px;
+    width: 350px;
+    margin: 0.25rem;
+    transition: .5s;
+    font-size: 1.15rem;
+}
+
+.add{
+    font-size: 2rem;
+	outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    width: 50px;
+    background-color: pink;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0.25rem;
+}
+
+.add:hover{
+	opacity: 0.7;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.item{
+	padding: 0.5rem;
+	border-bottom: 1px solid black;
+	margin-bottom: 1.5rem;
+}
+
+.item_input{
+	background: none;
+	outline: none;
+	border: none;
+	color: black;
+	font-size: 1.4rem;
+	width: 245px;
+  cursor:pointer;
+}
+
+.edit{
+	background: NONE;
+  padding-right:2px;
+	outline: none;
+	border: none;
+	color: black;
+	font-size: 1.4rem;
+	font-family: 'Hind', sans-serif;
+	margin: 0 0.4rem;
+	cursor: pointer;
+}
+
+.remove{
+	background: none;
+	outline: none;
+	border: none;
+	color: #E00;
+	font-size: 1.4rem;
+	font-family: 'Hind', sans-serif;
+	cursor: pointer;
+}
+
+   .logo {
         padding: 16px;
       }
 
@@ -80,90 +160,11 @@
         margin-right: 12px;
       }
 
-      .version {
-        color: #444;
-        font-size: 18px;
-      }
-
-      .modal-content{
-        width:340px; 
-    overflow-y:scroll; 
-    position:relative;
-    height: 250px;
-    bottom:0;
-      }
-
-     
-
-      .clickbox{
-          
-          position:absolute;
-          top:0;
-          padding:2rem;
-          margin-left:30px;
-          margin-top:70px;
-          display: none;
-          background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%);
-          
-      }
-
-      
-      input[type="text"] {
-      width: 100%;
-     padding:0.5rem;
-     outline:none;
-        border: none;
-  
-     }
-     #addurl{
-        background-color: violet;
-        outline:none;
-        border: none;
-        cursor:pointer;
-        padding:.5rem;
-        margin-top:10px;
-        
-     }
-     .closebox{
-         display: flex;
-         justify-content: flex-end;
-         margin-top:-12px;
-         margin-right:-1rem;
-         padding-bottom: 10px;
-         font-weight: 600;
-         cursor: pointer;
-     }
-
-     .row{
-         height:20px;
-         width:100%;
-         cursor: pointer;
-         
-
-
-     }
-     #rww{
-       cursor: pointer;
-     }
-     .copied{
-       position: absolute;
-       margin-top: -28px;
-       padding-left:5px;
-       display: none;
-     }
-     
-     #deleterow{
-       display: none;
-     }
-
-     
     </style>
-    
-  </head>
+</head>
 
-  <body id="body">
-<div class="container">
-    <div class="modal-header">
+<body>
+  <div class="modal-header">
       <h1 class="logo">
         <img class="logo-icon" src="icon_128.png" />Links++
         <span class="version">(1.0.0) </span><br>Select link to copy
@@ -171,42 +172,18 @@
     </div>
     <div class="modal-content">
       <!--<p>links go here...</p>-->
-      
       <div class="row" id="row">
-        
-         
           <span></span>
-         
-      </div>
-      <div id="deleterow">
-        <button>X</button>
-      </div>
-      
     </div>
-    <div class="modal-icons">
-      <button id="addnew">Add new link +</button>
-      
+       <p class="copied">Link copied!</p>
+    
+    <h1><span class="title"></span></h1>
+    <div class="inputDiv">
+    	   <input type="text" class="input" placeholder="Paste link here">
+    	   <button class="add">+</button>
     </div>
-    <p class="copied">Link copied!</p>
-
-   
-</div>
-<div class="clickbox">
-    <div class="boxcontent" > 
-
-        <div class="closebox" >
-            <button id="close">X</button>
-        </div>
-        
-            <input type=text id="linkk" placeholder="Paste link here"></input>
-            <button id="addurl">Add link</button>
-    
-        
-
+    <div class="container">
     </div>
-    
-    
-</div>
-<script src="popup.js"></script>
-  </body>
+    <script src='popup.js'></script>
+</body>
 </html>
