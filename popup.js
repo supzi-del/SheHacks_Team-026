@@ -53,6 +53,7 @@ var myArr=[];
 
 
     document.getElementById("row").addEventListener('click',function(){
+        
       document.execCommand("copy");
 
       document.querySelector(".copied").style.display="flex";
@@ -69,14 +70,9 @@ var myArr=[];
 
     document.getElementById("row").addEventListener('dblclick',function(){
         
-        document.querySelector(".row").classList.remove("row")
+        document.querySelector("#row").style.display="";
         
           
   
   
       });
-
-   
-
-
-
